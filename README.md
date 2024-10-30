@@ -20,3 +20,4 @@ En este repositorio, se incluye una aplicación en Node.js que permite gestionar
 ## Autora:
 
 **Vilma Ponce**
+                                    <br><img src="https://media.giphy.com/media/aQwvKKi4Lv3t63nZl9/giphy.gif" alt="Pedro el mapache" style="width: 150px; height: auto;">
