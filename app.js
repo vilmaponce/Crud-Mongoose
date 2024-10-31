@@ -5,7 +5,6 @@ mongoose.connect('mongodb+srv://grupo-02:grupo02@cursadanodejs.ls9ii.mongodb.net
     .then(() => console.log('Conexión exitosa a MongoDB'))
     .catch(error => console.error('Error al conectar a MongoDB:', error));
 
-// Definir el esquema para Superhéroes
 const superheroSchema = new mongoose.Schema({
     nombreSuperHeroe: { type: String, required: true },
     nombreReal: { type: String, required: true },
@@ -15,8 +14,10 @@ const superheroSchema = new mongoose.Schema({
     poderes: [String],
     aliados: [String],
     enemigos: [String],
-    createdAt: { type: Date, default: Date.now }
+    createdAt: { type: Date, default: Date.now },
+    creador: { type: String, default: 'Vilma Ponce' } 
 }, { collection: 'Grupo-02' });
+
 
 // Crear el modelo
 const SuperHero = mongoose.model('SuperHero', superheroSchema);
@@ -31,7 +32,8 @@ async function insertSuperHero() {
         debilidad: 'Radioactiva',
         poderes: ['Trepar paredes', 'Sentido arácnido', 'Super fuerza', 'Agilidad'],
         aliados: ['Ironman'],
-        enemigos: ['Duende Verde']
+        enemigos: ['Duende Verde'],
+        creador: 'Vilma Ponce'
     });
 
     try {
@@ -93,7 +95,7 @@ async function deleteSuperHero(nombreSuperHeroe) {
 
 
 
-// Función principal
+// // Función principal
 async function main() {
     await insertSuperHero();  // Inserta un nuevo superhéroe
     await findSuperHeroes();   // Muestra todos los superhéroes
@@ -102,6 +104,6 @@ async function main() {
     await findSuperHeroes();   // Muestra todos los superhéroes después de la actualización y eliminación
 }
 
-// Ejecutar la función principal
+// // Ejecutar la función principal
 main().catch(console.error); // Captura y muestra errores en la consola
 
